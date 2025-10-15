@@ -137,5 +137,14 @@ button:hover { filter: brightness(.97); }
   0%   { transform: scale(0.6); }
   50%  { transform: scale(1.4); }
   100% { transform: scale(0.6); }
+
 }
 
+img{
+  margin-top: -800px;
+  width: 520px;
+  height: auto;
+  left: auto;
+  position: absolute;
+  border-radius: 70px;
+}
