@@ -16,45 +16,69 @@ const labelPagamento = { avista: "À vista", "30dias": "30 dias", "3x": "3 vezes
 // ---------- Representantes ----------
 const representantes = [
   // ---------- TABELA A ----------
-  { name:"FLORIPA (SC)",          codes:"R00093",                table:"A" },
-  { name:"BALNEARIO (SC)",        codes:"R00451",                table:"A" },
-  { name:"LAGES (SC)",            codes:"R00418",                table:"A" },
-  { name:"BRASIAUDIO - BRASILIA", codes:"R00087",                table:"A" },
-  { name:"AUDIONORTE - BRASILIA", codes:"R00340",                table:"A" },
-  { name:"AUDIOLIFE - BH",        codes:"R00156",                table:"A" },
-  { name:"AUDITIVA - BH",         codes:"R00397",                table:"A" },
-  { name:"AUDIOSONO - BH",        codes:"R00446",                table:"A" },
-  { name:"MICROSOM GOIANIA",      codes:"R00435",                table:"A" },
-  { name:"UNIBEL",                codes:"R00445",                table:"A" },
-  { name:"MICROSOM FORTALEZA",    codes:"R00415",                table:"A" },
+  { name: "FLORIPA (SC)", codes: "R00093", table: "A" },
+  { name: "BALNEARIO (SC)", codes: "R00451", table: "A" },
+  { name: "LAGES (SC)", codes: "R00418", table: "A" },
+  { name: "BRASIAUDIO - BRASILIA", codes: "R00087", table: "A" },
+  { name: "AUDIONORTE - BRASILIA", codes: "R00340", table: "A" },
+  { name: "AUDIOLIFE - BH", codes: "R00156", table: "A" },
+  { name: "AUDITIVA - BH", codes: "R00397", table: "A" },
+  { name: "AUDIOSONO - BH", codes: "R00446", table: "A" },
+  { name: "MICROSOM GOIANIA", codes: "R00435", table: "A" },
+  { name: "UNIBEL", codes: "R00445", table: "A" },
+  { name: "MICROSOM FORTALEZA", codes: "R00415", table: "A" },
 
   // ---------- TABELA B ----------
-  { name:"PORTO ALEGRE",          codes:"R00016",  table:"B" },
-  { name:"CUIABA",                codes:"R00440",  table:"B" },
-  { name:"RONDONOPOLIS",          codes:"R00462",  table:"B" },
-  { name:"AUDIO MS - CAMPO GRANDE", codes:"RA0003", table:"B" },
-  { name:"JACAREÍ",               codes:"R00404",  table:"B" },
-  { name:"FAMAX - MANAUS",        codes:"R00363",  table:"B" },
-  { name:"S F MAXIMIANO - MANAUS", codes:"R00434", table:"B" },
-  { name:"BAURU",                 codes:"R00253",  table:"B" },
-  { name:"MARILIA",               codes:"R00494",  table:"B" },
-  { name:"SOROCABA",              codes:"R00120",  table:"B" },
-  { name:"ITU",                   codes:"R00437",  table:"B" },
-  { name:"TAUBATE",               codes:"R00443",  table:"B" },
-  { name:"LONDRINA",              codes:"R00006",  table:"B" },
-  { name:"MARINGA",               codes:"R00086",  table:"B" },
+  { name: "PORTO ALEGRE", codes: "R00016", table: "B" },
+  { name: "CUIABA", codes: "R00440", table: "B" },
+  { name: "RONDONOPOLIS", codes: "R00462", table: "B" },
+  { name: "AUDIO MS - CAMPO GRANDE", codes: "RA0003", table: "B" },
+  { name: "JACAREÍ", codes: "R00404", table: "B" },
+  { name: "FAMAX - MANAUS", codes: "R00363", table: "B" },
+  { name: "S F MAXIMIANO - MANAUS", codes: "R00434", table: "B" },
+  { name: "BAURU", codes: "R00253", table: "B" },
+  { name: "MARILIA", codes: "R00494", table: "B" },
+  { name: "SOROCABA", codes: "R00120", table: "B" },
+  { name: "ITU", codes: "R00437", table: "B" },
+  { name: "TAUBATE", codes: "R00443", table: "B" },
+  { name: "LONDRINA", codes: "R00006", table: "B" },
+  { name: "MARINGA", codes: "R00086", table: "B" },
 
   // ---------- TABELA C ----------
-  { name:"MICROSOM MACAPA",                codes:"R00439",  table:"C" },
-  { name:"MICROSOM VITORIA",               codes:"R00450",  table:"C" },
-  { name:"MICROSOM UBERLANDIA",            codes:"R00426",  table:"C" },
-  { name:"MICROSOM OSASCO",                codes:"R00390",  table:"C" },
-  { name:"FORTES E NASCIMENTO - CURITIBA", codes:"R00489",  table:"C" },
-  { name:"BACACHERI - CURITIBA",           codes:"R00491",  table:"C" },
-  { name:"MICROSOM PRES. PRUDENTE",        codes:"R00117",  table:"C" },
-  { name:"MICROSOM CAMAÇARI",              codes:"R00422",  table:"C" },
-  { name:"PARCEIRO CASCAVEL",              codes:"R00476",  table:"C" },
+  { name: "MICROSOM MACAPA", codes: "R00439", table: "C" },
+  { name: "MICROSOM VITORIA", codes: "R00450", table: "C" },
+  { name: "MICROSOM UBERLANDIA", codes: "R00426", table: "C" },
+  { name: "MICROSOM OSASCO", codes: "R00390", table: "C" },
+  { name: "FORTES E NASCIMENTO - CURITIBA", codes: "R00489", table: "C" },
+  { name: "BACACHERI - CURITIBA", codes: "R00491", table: "C" },
+  { name: "MICROSOM PRES. PRUDENTE", codes: "R00117", table: "C" },
+  { name: "MICROSOM CAMAÇARI", codes: "R00422", table: "C" },
+  { name: "CASSI PARCEIRO CASCAVEL", codes: "R00476", table: "C" },
+  { name: "CASSI PARCEIRO SALVADOR", codes: "R00465", table: "C" },
+  { name: "CASSI PARCEIRO JUIZ DE FORA", codes: "R00475", table: "C" },
+  { name: "CASSIPARCEIRO PARAUAPEBAS", codes: "R00469", table: "C" },
+  { name: "CASSIPARCEIRO JOÃO PESSOA", codes: "R00457", table: "C" },
+  { name: "CASSI PARCEIRO MARANHÃO", codes: "R00473", table: "C" },
+  { name: "CASSI PARCEIRO TERESINA", codes: "R00466", table: "C" },
+  { name: "CASSI PARCEIRO BELEM (PA)", codes: "R00191", table: "C" },
+  { name: "CASSI PARCEIRO ARACAJU", codes: "R00467", table: "C" },
+  { name: "CASSI PARCEIRO RECIFE", codes: "R00474", table: "C" },
+  { name: "CASSI PARCEIRO CAMPINA GRANDE", codes: "R00495", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00470", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00471", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00477", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00478", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00479", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00480", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00481", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00482", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00483", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00484", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00485", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00486", table: "C" },
+  { name: "CASSI PARCEIRO RIO DE JANEIRO", codes: "R00487", table: "C" },
 ];
+
 
 // ---------- Tabelas de preços ----------
 const tabelaA = {
@@ -144,8 +168,26 @@ const tabelaC = {
   "ARC AI 1000 BTE PP": { avista: 1350.56, "30dias": 1378.13, "3x": 1405.69, "4x": 1433.80 }
 };
 
-const aparelhos = [
 
+
+
+
+
+
+const tabelas = { A: tabelaA, B: tabelaB, C: tabelaC };
+
+function acharRepresentante(input) {
+  const q = normalize(input);
+  if (!q) return null;
+  return representantes.find(r => normalize(`${r.name} ${r.codes}`).includes(q)) || null;
+}
+
+function formatBRL(n) {
+  return n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+// lista de aparelhos
+const aparelhos = [
   { codigo: "APD10032", modelo: "INTRIGUE 24 RIC - R" },
   { codigo: "APD10035", modelo: "INTRIGUE 20 RIC - R" },
   { codigo: "APD10038", modelo: "INTRIGUE 16 RIC - R" },
@@ -156,7 +198,7 @@ const aparelhos = [
   { codigo: "APA10249", modelo: "ARC AI 2400 BTE PP" },
   { codigo: "APC10202", modelo: "ARC AI 2000 RIC R" },
   { codigo: "APA10246", modelo: "ARC AI 2000 BTE R" },
-  { codigo: "APC10199", modelo: "ARC AI 2000 RIC" },  
+  { codigo: "APC10199", modelo: "ARC AI 2000 RIC" },
   { codigo: "APA10243", modelo: "ARC AI 2000 BTE" },
   { codigo: "APA10249", modelo: "ARC AI 2000 BTE PP" },
   { codigo: "APC10208", modelo: "ARC AI 1600 RIC R" },
@@ -172,38 +214,14 @@ const aparelhos = [
   { codigo: "APC10217", modelo: "ARC AI 1000 RIC" },
   { codigo: "APA10270", modelo: "ARC AI 1000 BTE" },
   { codigo: "APA10276", modelo: "ARC AI 1000 BTE PP" },
+];
 
-]
-
-
-
-
-
-// coleção de tabelas
-const tabelas = { A: tabelaA, B: tabelaB, C: tabelaC };
-
-// ---------- Funções de busca ----------
-function acharRepresentante(input) {
-  const q = normalize(input);
-  if (!q) return null;
-  return representantes.find(r => normalize(`${r.name} ${r.codes}`).includes(q)) || null;
-}
-
-function acharModelo(tabela, inputModelo) {
-  const q = normalize(inputModelo);
-  if (!q) return null;
-  const modelos = Object.keys(tabelas[tabela] || {});
-  // busca exata
-  let candidato = modelos.find(m => normalize(m) === q);
-  // busca começando com
-  if (!candidato) candidato = modelos.find(m => normalize(m).startsWith(q));
-  // busca por inclusão (fallback)
-  if (!candidato) candidato = modelos.find(m => normalize(m).includes(q));
-  return candidato || null;
-}
-
-function formatBRL(n) {
-  return n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+function acharModelo(valorDigitado) {
+  const encontrado = aparelhos.find(ap =>
+    ap.modelo.toLowerCase().includes(valorDigitado.toLowerCase()) ||
+    ap.codigo.toLowerCase().includes(valorDigitado.toLowerCase())
+  );
+  return encontrado || null;
 }
 
 // ---------- UI (aguarda DOM) ----------
@@ -229,11 +247,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const modelo = acharModelo(rep.table, $modelo.value);
-    if (!modelo) {
+    const aparelho = acharModelo($modelo.value);
+    if (!aparelho) {
       mostrarMensagem(`❌ Modelo não encontrado na Tabela <b>${rep.table}</b>.`);
       return;
     }
+
+    const modelo = aparelho.modelo;
+    const codigo = aparelho.codigo;
 
     const forma = $pag.value;
     if (!forma) {
@@ -241,7 +262,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const preco = (tabelas[rep.table] && tabelas[rep.table][modelo]) ? tabelas[rep.table][modelo][forma] : undefined;
+    const preco = (tabelas[rep.table] && tabelas[rep.table][modelo])
+      ? tabelas[rep.table][modelo][forma]
+      : undefined;
+
     if (typeof preco !== "number") {
       mostrarMensagem("❌ Não há preço cadastrado para essa combinação.");
       return;
@@ -249,18 +273,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $out.style.display = "block";
     $out.innerHTML = `
-      <div><b>${modelo}</b> <span style="display:inline-block;padding:3px 8px;border-radius:999px;background:#eef2ff;margin-left:8px">Tabela ${rep.table}</span></div>
-      <div style="color:#6b7280;margin:6px 0 10px">Representante: <b>${rep.name}</b> &middot; Códigos: <b>${rep.codes}</b></div>
+      <div>
+        <b>${modelo}</b> 
+        <span style="display:inline-block;padding:3px 8px;border-radius:999px;background:#eef2ff;margin-left:8px">
+          Tabela ${rep.table}
+        </span>
+      </div>
+      <div style="color:#6b7280;margin:4px 0">Código do aparelho: <b>${codigo}</b></div>
+      <div style="color:#6b7280;margin:6px 0 10px">
+        Representante: <b>${rep.name}</b> &middot; Códigos: <b>${rep.codes}</b>
+      </div>
       <div><b>${labelPagamento[forma] || forma}:</b> ${formatBRL(preco)}</div>
     `;
   }
 
   // eventos
   if ($btn) $btn.addEventListener("click", consultar);
-  ["repInput","modeloInput","pagamento"].forEach(id => {
+  ["repInput", "modeloInput", "pagamento"].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener("keydown", (e) => { if (e.key === "Enter") consultar(); });
+    if (el) el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") consultar();
+    });
   });
 });
-
 
