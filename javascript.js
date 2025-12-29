@@ -6,9 +6,12 @@ const normalize = (s) => (s || "")
   .replace(/[^a-z0-9\-\/ ]/gi, " ")
   .replace(/\s+/g, " ")
   .trim()
-  .replace(/\s+bte\s*r$/i, " bte-r")
-  .replace(/\s+ric\s*r$/i, " ric-r")
-  .toLowerCase();
+  .replace(/\bbte\s*pp\b/i, "bte-pp")
+  .replace(/\bbte\s+r\b/i, "bte-r")
+  .replace(/\bbte\b/i, "bte")
+  .replace(/\bric\s+r\b/i, "ric-r")
+  .replace(/\bric\b/i, "ric") 
+ .toLowerCase();
 
 // ---------- Rótulos de pagamento ----------
 const labelPagamento = { avista: "À vista", "30dias": "30 dias", "3x": "3 vezes", "4x": "4 vezes" };
@@ -27,6 +30,10 @@ const representantes = [
   { name: "MICROSOM GOIANIA", codes: "R00435", table: "A" },
   { name: "UNIBEL", codes: "R00445", table: "A" },
   { name: "MICROSOM FORTALEZA", codes: "R00415", table: "A" },
+  { name: "SOROCABA", codes: "R00120", table: "B" },
+  { name: "TAUBATE", codes: "R00443", table: "B" },
+  { name: "LONDRINA", codes: "R00006", table: "B" },
+  { name: "MARINGA", codes: "R00086", table: "B" },
 
   // ---------- TABELA B ----------
   { name: "PORTO ALEGRE", codes: "R00016", table: "B" },
@@ -38,11 +45,8 @@ const representantes = [
   { name: "S F MAXIMIANO - MANAUS", codes: "R00434", table: "B" },
   { name: "BAURU", codes: "R00253", table: "B" },
   { name: "MARILIA", codes: "R00494", table: "B" },
-  { name: "SOROCABA", codes: "R00120", table: "B" },
   { name: "ITU", codes: "R00437", table: "B" },
-  { name: "TAUBATE", codes: "R00443", table: "B" },
-  { name: "LONDRINA", codes: "R00006", table: "B" },
-  { name: "MARINGA", codes: "R00086", table: "B" },
+
 
   // ---------- TABELA C ----------
   { name: "MICROSOM MACAPA", codes: "R00439", table: "C" },
@@ -85,6 +89,7 @@ const tabelaA = {
   "INTRIGUE 24 RIC - R ": { avista: 3047.80, "30dias": 3110.00, "3x": 3172.20, "4x": 3235.64 },
   "INTRIGUE 20 RIC - R": { avista: 2744.00, "30dias": 2800.00, "3x": 2856.00, "4x": 2913.12 },
   "INTRIGUE 16 RIC - R": { avista: 2450.00, "30dias": 2500.00, "3x": 2550.00, "4x": 2601.00 },
+  "INTRIGUE 12 RIC - R": { avista: 2107.00, "30dias": 2150.00, "3x": 2193.00, "4x": 2236.86},
   "ARC AI 2400 RIC R": { avista: 2793.00, "30dias": 2850.00, "3x": 2907.00, "4x": 2965.14 },
   "ARC AI 2400 BTE R": { avista: 2793.00, "30dias": 2850.00, "3x": 2907.00, "4x": 2965.14 },
   "ARC AI 2400 RIC": { avista: 2528.40, "30dias": 2580.00, "3x": 2631.60, "4x": 2684.23 },
@@ -114,6 +119,7 @@ const tabelaB = {
   "INTRIGUE 24 RIC - R": { avista: 3199.70, "30dias": 3265.00, "3x": 3330.30, "4x": 3396.91 },
   "INTRIGUE 20 RIC - R": { avista: 2881.20, "30dias": 2940.00, "3x": 2998.80, "4x": 3058.78 },
   "INTRIGUE 16 RIC - R": { avista: 2572.50, "30dias": 2625.00, "3x": 2677.50, "4x": 2731.05 },
+  "INTRIGUE 12 RIC - R": { avista: 2107.00, "30dias": 2150.00, "3x": 2193.00, "4x": 2236.86},
   "ARC AI 2400 RIC R": { avista: 2932.65, "30dias": 2992.50, "3x": 3052.35, "4x": 3113.40 },
   "ARC AI 2400 BTE R": { avista: 2932.65, "30dias": 2992.50, "3x": 3052.35, "4x": 3113.40 },
   "ARC AI 2400 RIC": { avista: 2654.82, "30dias": 2709.00, "3x": 2763.18, "4x": 2818.44 },
@@ -143,6 +149,7 @@ const tabelaC = {
   "INTRIGUE 24 RIC - R": { avista: 3359.69, "30dias": 3428.25, "3x": 3496.82, "4x": 3566.75 },
   "INTRIGUE 20 RIC - R": { avista: 3025.26, "30dias": 3087.00, "3x": 3148.74, "4x": 3211.71 },
   "INTRIGUE 16 RIC - R": { avista: 2701.13, "30dias": 2756.25, "3x": 2811.38, "4x": 2867.60 },
+  "INTRIGUE 12 RIC - R ": { avista: 2107.00, "30dias": 2150.00, "3x": 2193.00, "4x": 2236.86},
   "ARC AI 2400 RIC R": { avista: 3079.28, "30dias": 3142.13, "3x": 3204.97, "4x": 3269.07 },
   "ARC AI 2400 BTE R": { avista: 3079.28, "30dias": 3142.13, "3x": 3204.97, "4x": 3269.07 },
   "ARC AI 2400 RIC": { avista: 2787.56, "30dias": 2844.45, "3x": 2901.34, "4x": 2959.37 },
@@ -190,12 +197,13 @@ function formatBRL(n) {
 const aparelhos = [
   { codigo: "APD10032", modelo: "INTRIGUE 24 RIC - R" },
   { codigo: "APD10035", modelo: "INTRIGUE 20 RIC - R" },
+  { codigo: "APD10041", modelo: "INTRIGUE 12 RIC - R" },
   { codigo: "APD10038", modelo: "INTRIGUE 16 RIC - R" },
   { codigo: "APC10196", modelo: "ARC AI 2400 RIC R" },
   { codigo: "APA10237", modelo: "ARC AI 2400 BTE R" },
   { codigo: "APC10193", modelo: "ARC AI 2400 RIC" },
   { codigo: "APA10234", modelo: "ARC AI 2400 BTE" },
-  { codigo: "APA10249", modelo: "ARC AI 2400 BTE PP" },
+  { codigo: "APA10240", modelo: "ARC AI 2400 BTE PP" },
   { codigo: "APC10202", modelo: "ARC AI 2000 RIC R" },
   { codigo: "APA10246", modelo: "ARC AI 2000 BTE R" },
   { codigo: "APC10199", modelo: "ARC AI 2000 RIC" },
@@ -217,13 +225,15 @@ const aparelhos = [
 ];
 
 function acharModelo(valorDigitado) {
+  const q = normalize(valorDigitado);
+
   const encontrado = aparelhos.find(ap =>
-    ap.modelo.toLowerCase().includes(valorDigitado.toLowerCase()) ||
-    ap.codigo.toLowerCase().includes(valorDigitado.toLowerCase())
+    normalize(ap.modelo) === q ||
+    normalize(ap.codigo) === q
   );
+
   return encontrado || null;
 }
-
 // ---------- UI (aguarda DOM) ----------
 document.addEventListener("DOMContentLoaded", () => {
   const $rep = document.getElementById("repInput");
