@@ -226,14 +226,24 @@ const aparelhos = [
 
 function acharModelo(valorDigitado) {
   const q = normalize(valorDigitado);
+  if (!q) return null;
 
-  const encontrado = aparelhos.find(ap =>
-    normalize(ap.modelo) === q ||
-    normalize(ap.codigo) === q
-  );
+  const qTokens = q.split(" ");
 
-  return encontrado || null;
+  return aparelhos.find(ap => {
+    const modeloNorm = normalize(ap.modelo);
+    const codigoNorm = normalize(ap.codigo);
+
+    // 1️⃣ match exato
+    if (modeloNorm === q || codigoNorm === q) return true;
+
+    // 2️⃣ todas as palavras digitadas precisam existir no modelo
+    return qTokens.every(token =>
+      modeloNorm.split(" ").includes(token)
+    );
+  }) || null;
 }
+
 // ---------- UI (aguarda DOM) ----------
 document.addEventListener("DOMContentLoaded", () => {
   const $rep = document.getElementById("repInput");
